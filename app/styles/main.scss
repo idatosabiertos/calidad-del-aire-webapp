@@ -1,0 +1,36 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Defaults
+@import "defaults/colors";
+
+// Elements
+@import "elements/type";
+@import "elements/list";
+@import "elements/forms";
+
+// Components
+@import "components/navbar";
+@import "components/footer";
+@import "components/tooltip";
+@import "components/map";
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+.main-label {
+  margin-left: 15px;
+}
