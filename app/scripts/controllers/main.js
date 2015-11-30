@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name comoVamosColombiaApp.controller:MainCtrl
+ * @name calidadDelAire.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the comoVamosColombiaApp
+ * Controller of the calidadDelAire
  */
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .controller('MainCtrl', ['$timeout', 'Api', 'Graph', function ($timeout, Api, Graph) {
       var self = this;
       self.firstSelectedOption = {

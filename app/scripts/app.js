@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name comoVamosColombiaApp
+ * @name calidadDelAire
  * @description
- * # comoVamosColombiaApp
+ * # calidadDelAire
  *
  * Main module of the application.
  */
 angular
-  .module('comoVamosColombiaApp', [
+  .module('calidadDelAire', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

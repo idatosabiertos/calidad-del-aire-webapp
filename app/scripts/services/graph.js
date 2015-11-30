@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name comoVamosColombiaApp.Graph
+ * @name calidadDelAire.Graph
  * @description
  * # Graph
- * Service in the comoVamosColombiaApp.
+ * Service in the calidadDelAire.
  */
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .service('Graph', ['Defaults', 'lodash', function (Defaults, lodash) {
       var _buildChartTitle = function(datum) {
         if(datum.length > 1) {

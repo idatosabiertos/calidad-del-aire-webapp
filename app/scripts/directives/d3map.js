@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name comoVamosColombiaApp.directive:d3Map
+ * @name calidadDelAire.directive:d3Map
  * @description
  * # d3Map
  */
@@ -144,7 +144,7 @@ function d3Map(element) {
 }
 
 
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .directive('d3Map', function () {
     return {
       template: '<svg></svg>',

@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:civica-digital/como-vamos-colombia-webapp.git',
+          remote: 'git@github.com:civica-digital/calidad-del-aire-webapp.git',
           branch: 'gh-pages'
         }
       },
@@ -394,7 +394,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'comoVamosColombiaApp',
+          module: 'calidadDelAire',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

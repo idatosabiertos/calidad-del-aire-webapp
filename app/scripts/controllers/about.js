@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name comoVamosColombiaApp.controller:AboutCtrl
+ * @name calidadDelAire.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the comoVamosColombiaApp
+ * Controller of the calidadDelAire
  */
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

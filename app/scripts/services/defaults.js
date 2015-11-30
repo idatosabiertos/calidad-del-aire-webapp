@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name comoVamosColombiaApp.Defaults
+ * @name calidadDelAire.Defaults
  * @description
  * # Defaults
- * Service in the comoVamosColombiaApp.
+ * Service in the calidadDelAire.
  */
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .service('Defaults', function () {
     var _graphColors = {
       firstAccent: '#BB0E80',

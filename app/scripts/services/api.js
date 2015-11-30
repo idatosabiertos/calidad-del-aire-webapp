@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name comoVamosColombiaApp.api
+ * @name calidadDelAire.api
  * @description
  * # api
- * Service in the comoVamosColombiaApp.
+ * Service in the calidadDelAire.
  */
-angular.module('comoVamosColombiaApp')
+angular.module('calidadDelAire')
   .service('Api', ['$http', function ($http) {
     function uriParam(param) {
       return '/' + param;

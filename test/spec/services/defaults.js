@@ -3,7 +3,7 @@
 describe('Service: Defaults', function () {
 
   // load the service's module
-  beforeEach(module('comoVamosColombiaApp'));
+  beforeEach(module('calidadDelAire'));
 
   // instantiate service
   var Defaults;

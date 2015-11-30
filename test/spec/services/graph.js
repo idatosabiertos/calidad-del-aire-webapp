@@ -3,7 +3,7 @@
 describe('Service: Graph', function () {
 
   // load the service's module
-  beforeEach(module('comoVamosColombiaApp'));
+  beforeEach(module('calidadDelAire'));
 
   // instantiate service
   var Graph;
