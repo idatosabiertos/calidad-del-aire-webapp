@@ -10,22 +10,16 @@
 angular.module('calidadDelAire')
   .controller('MainCtrl', ['$timeout', 'Api', 'Graph', function ($timeout, Api, Graph) {
       var self = this;
-      self.firstSelectedOption = {
-        city: undefined,
-        category: undefined,
-        indicator: undefined,
-      };
 
-      self.secondSelectedOption = {
-        city: undefined,
-        category: undefined,
-        indicator: undefined,
-      };
+      // Inititalize variables
+      self.dateSelected = undefined;
+      self.dateOptions = Api.dateOptions;
+
 
       self.initialize = function() {
         // Comment this when using real data
-        self.showChart = false;
-        self.data = Api.dummy_cities();
+        // self.showChart = false;
+        // self.data = Api.dummy_cities();
 
         self.drawGraph();
 
@@ -62,7 +56,7 @@ angular.module('calidadDelAire')
         // Give time for the container to draw
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
-          self.chartConfig = Graph.chartConfig([Api.dummy_indicator_1(), Api.dummy_indicator_2()]);
+          self.chartConfig = Graph.chartConfig([Api.dummy_city()[0], Api.dummy_city()[1]]);
         }, 1000);
       };
 

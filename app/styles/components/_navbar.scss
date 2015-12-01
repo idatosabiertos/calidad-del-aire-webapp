@@ -7,7 +7,7 @@ $navbar-height:                    80px;
 // $navbar-collapse-max-height:       340px;
 
 $navbar-default-color:             #777;
-$navbar-default-bg:                #f8f8f8;
+$navbar-default-bg:                #03A9F4;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%);
 
 // Navbar links
@@ -32,7 +32,7 @@ $navbar-default-brand-hover-bg:            transparent;
 
 
 .navbar-default {
-  background-image: linear-gradient(to right, rgb(63, 78, 173) 0%, rgb(108, 39, 132) 100%);
+  // background-image: linear-gradient(to right, rgb(63, 78, 173) 0%, rgb(108, 39, 132) 100%);
 }
 
 .navbar-header > img {
