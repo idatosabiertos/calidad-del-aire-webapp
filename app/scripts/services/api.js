@@ -44,34 +44,34 @@ angular.module('calidadDelAire')
           city: 'Bogotá',
           type: 'objetivo',
           timeline: [{
-            'year': 1989,
+            'date_unit': 1989,
             'value': 0.05
           }, {
-            'year': 1990,
+            'date_unit': 1990,
             'value': 0.1
           }, {
-            'year': 1991,
+            'date_unit': 1991,
             'value': 0.11
           }, {
-            'year': 1992,
+            'date_unit': 1992,
             'value': 0.12
           }, {
-            'year': 1993,
+            'date_unit': 1993,
             'value': 0.11
           }, {
-            'year': 1994,
+            'date_unit': 1994,
             'value': 0.13
           }, {
-            'year': 1995,
+            'date_unit': 1995,
             'value': 0.14
           }, {
-            'year': 1996,
+            'date_unit': 1996,
             'value': 0.12
           }, {
-            'year': 1997,
+            'date_unit': 1997,
             'value': 0.14
           }, {
-            'year': 1998,
+            'date_unit': 1998,
             'value': 0.08
           }]
         },
@@ -81,34 +81,34 @@ angular.module('calidadDelAire')
             city: 'Bogotá',
             type: 'objetivo',
             timeline: [{
-              'year': 1989,
+              'date_unit': 1989,
               'value': 0.1
             }, {
-              'year': 1990,
+              'date_unit': 1990,
               'value': 0.1
             }, {
-              'year': 1991,
+              'date_unit': 1991,
               'value': 0.1
             }, {
-              'year': 1992,
+              'date_unit': 1992,
               'value': 0.1
             }, {
-              'year': 1993,
+              'date_unit': 1993,
               'value': 0.1
             }, {
-              'year': 1994,
+              'date_unit': 1994,
               'value': 0.1
             }, {
-              'year': 1995,
+              'date_unit': 1995,
               'value': 0.1
             }, {
-              'year': 1996,
+              'date_unit': 1996,
               'value': 0.1
             }, {
-              'year': 1997,
+              'date_unit': 1997,
               'value': 0.1
             }, {
-              'year': 1998,
+              'date_unit': 1998,
               'value': 0.1
             }]
           }

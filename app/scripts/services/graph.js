@@ -32,7 +32,7 @@ angular.module('calidadDelAire')
 
         // Build the data object
         _serie.data =  lodash.map(indicatorData, function(data){
-          return [data.year.toString(), data.value];
+          return [data.date_unit.toString(), data.value];
         });
 
 
@@ -60,7 +60,7 @@ angular.module('calidadDelAire')
           // Build the data object
           _serie.data =  lodash.map(indicatorData, function(data){
             var _value = lodash.result( lodash.findWhere(data.value, { 'name': stackName }), 'value');
-            return [data.year.toString(), _value];
+            return [data.date_unit.toString(), _value];
           });
 
           return _serie;
