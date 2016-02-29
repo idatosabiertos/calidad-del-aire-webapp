@@ -14,9 +14,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "elements/forms";
 
 // Components
+@import "components/clouds";
 @import "components/navbar";
 @import "components/footer";
 @import "components/tooltip";
+@import "components/banner";
+@import "components/twitter";
+@import "components/description";
 @import "components/map";
 
 // bower:scss
@@ -24,7 +28,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "GothamRnd";
+  //font-weight: bold;
 }
 
 section {
@@ -33,4 +38,27 @@ section {
 
 .main-label {
   margin-left: 15px;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Bold.otf") format("opentype");
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Medium.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: GothamRnd;
+  src: url("../fonts/GothamRnd-Book.otf") format("opentype");
+  font-weight: normal;
+}
+
+.container-fluid  {
+  padding-left: 0px;
+  padding-right: 0px;
 }

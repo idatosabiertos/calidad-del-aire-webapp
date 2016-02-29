@@ -1,0 +1,43 @@
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+.description {
+	background-color: #F6F6F6;
+}
+
+.description h1 {
+	color: #0A136B;
+	letter-spacing: 1px;
+	font-size: 26px;
+}
+
+.description .inside {
+  background-color: #F6F6F6;
+  padding-left: 9vw;
+  padding-right: 6vw;
+  padding-bottom: 9vh;
+  padding-top: 6vh;
+	margin-bottom: 0;
+}
+
+.description h2 {
+  margin-top: 0px;
+	color: #D5D5D7;
+}
+
+.description h3 {
+	color: #727274;
+	line-height: 150%;
+	letter-spacing: 1px;
+	font-size: 22px;
+}

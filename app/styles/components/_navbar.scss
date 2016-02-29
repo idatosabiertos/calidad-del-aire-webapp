@@ -1,20 +1,20 @@
 // Basics of a navbar
 $navbar-height:                    80px;
-// $navbar-margin-bottom:             $line-height-computed;
+$navbar-margin-bottom:             0;
 // $navbar-border-radius:             $border-radius-base;
 // $navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
 // $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
 // $navbar-collapse-max-height:       340px;
 
 $navbar-default-color:             #777;
-$navbar-default-bg:                #03A9F4;
-$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+$navbar-default-bg:                #FFFFFF;
+//$navbar-default-border:            darken($navbar-default-bg, 6.5%);
 
 // Navbar links
-$navbar-default-link-color:                #fff;
-$navbar-default-link-hover-color:          #fff;
+$navbar-default-link-color:                transparent;
+$navbar-default-link-hover-color:          transparent;
 $navbar-default-link-hover-bg:             transparent;
-$navbar-default-link-active-color:         #555;
+$navbar-default-link-active-color:         transparent;
 $navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%);
 $navbar-default-link-disabled-color:       #ccc;
 $navbar-default-link-disabled-bg:          transparent;
@@ -23,6 +23,8 @@ $navbar-default-link-disabled-bg:          transparent;
 $navbar-default-brand-color:               $navbar-default-link-color;
 $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%);
 $navbar-default-brand-hover-bg:            transparent;
+$navbar-padding-vertical:                  0px;
+$navbar-padding-horizontal:                0px;
 
 // Navbar toggle
 // $navbar-default-toggle-hover-bg:           #ddd;
@@ -30,15 +32,31 @@ $navbar-default-brand-hover-bg:            transparent;
 // $navbar-default-toggle-border-color:       #ddd;
 // $line-height-computed: 1;
 
-
 .navbar-default {
   // background-image: linear-gradient(to right, rgb(63, 78, 173) 0%, rgb(108, 39, 132) 100%);
 }
 
-.navbar-header > img {
-  height: 90px;
+.navbar-nav > li > a  {
+  font-size: 14px;
+  color: #9D9D9F;
+  letter-spacing: 1.5px;
 }
 
-.navbar-nav > li > a  {
-  font-size: 16px;
+.logo-col {
+  background-color:#F6F6F6;
+}
+
+.navbar-brand-text {
+  color: #0D1270;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.navbar-nav {
+  padding-top: 25px;
+}
+
+.selected_city {
+  border-bottom: 3px solid #DB137B;
 }

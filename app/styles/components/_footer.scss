@@ -1,5 +1,5 @@
 // Navbar default colors
-$footer_background_color: $grey_100;
+$footer_background_color: #ffffff;
 
 // Paddings
 $footer_padding_top: 50px;
@@ -21,7 +21,7 @@ $link_header_padding_bottom: 10px;
   p, a {
     color: $grey_600;
     &.header {
-      font-weight: bolder;
+      //font-weight: bolder;
       color: $grey_600;
     }
   }

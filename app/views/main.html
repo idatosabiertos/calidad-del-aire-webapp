@@ -1,57 +1,99 @@
-<section class="text-center">
-  <h1>Calidad del aire</h1>
-</section>
-
-  <section>
-    <p>
-      Pequeña descripción de qué es, qué hace, cómo funciona. Lorem ipsum dolor
-      sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </section>
-
-<section>
-  <p class="main-label">
-    Período de tiempo para visualizar la información:
-  </p>
-  <div class="col-xs-12 col-sm-4">
-    <select class="form-control" name="" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions">
-    </select>
-  </div>
-</section>
-
-<section class="text-center">
-  <!-- <h1>Nombre del indicador</h1> -->
-  <highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
-</section>
-
-<section>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="poll_experience">
-        <p>
-          <strong>Some variable description.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="poll_experience">
-        <p>
-          <strong>Some poll description.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <ul>
-          <li><span class="index">1.</span>Muy Mala</li>
-          <li><span class="index">2.</span>Mala</li>
-          <li><span class="index">3.</span>Regular</li>
-          <li><span class="index">4.</span>Buena</li>
-          <li><span class="index">5.</span>Muy buena</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-13 banner_city"><img src="images/banner_city.png" class="img-responsive"></div>
+	</div>
+	<div class="row-height">
+	  <div class="col-sm-7 col-height description">
+			<div class="inside">
+				<span><h1> Descripción del sitio </h1></span>
+				<span><h2>__</h2></p></span>
+				<span>
+					<h3>
+					 Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					 Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					 Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					 Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				 </h3>
+				</span>
+			</div>
+		</div>
+	  <div class="col-sm-5 twitter col-height">
+			<div class="inside">
+				<h1>Twitter <span class="twitter-handle">@respira_app</span></h1>
+				<span><h2>__</h2></p></span>
+				<table class="table">
+				  <tbody>
+				    <tr>
+				      <td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
+				      <td>
+								<span class="text-tweet">Uruguay en el top ten de innovación tecnológica y prevención sobre polución de aire!<p></span>
+								<span class="go-tweet">Ver >></span>
+							</td>
+				    </tr>
+				    <tr>
+							<td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
+				      <td>
+								<span class="text-tweet">Les recomendamos esta web acerca de la polución en las ciudades y como preveer enfermedades<p></span>
+								<span class="go-tweet">Ver >></span>
+							</td>
+				    </tr>
+						<tr>
+							<td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
+							<td>
+								<span class="text-tweet">Ya estamos funcionando! Gracias a todos por el apoyo.<p></span>
+								<span class="go-tweet">Ver >></span>
+							</td>
+						</tr>
+				  </tbody>
+				</table>
+		</div>
+	</div>
+</div>
+	<div class="row-height">
+	  <div class="col-sm-7 map">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-4">
+				<select class="form-control selector-map" name="" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions">
+					<option value="">Periodo de Tiempo</option>
+				</select>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	  <div class="col-sm-5"></div>
+	</div>
+	<div class="row-height">
+			<div class="col-sm-7 map">
+				<div class="inside map-description">
+				<h1>Descripción del mapa</h1>
+				<h2>
+					Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Charizard Lorem ipsum dolor sit amet.
+				</h2>
+			</div>
+		</div>
+		<div class="col-sm-5 clouds">
+			<div class="inside clouds-description">
+			<h1>Descripción de las gráficas</h1>
+			<h2>
+				Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			</h2>
+		</div>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="col-sm-7 map">
+		</div>
+		<div class="col-sm-5 clouds"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
+		</div>
+	</div>
+</div>
