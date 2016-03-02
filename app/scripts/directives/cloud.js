@@ -156,7 +156,8 @@ function cloud(quality,element) {
         .attr("font-family", "GothamRnd")
         .attr("font-size", font_size)
         .attr("fill", "#0F156E")
-        .attr("font-weight","bold");
+        .attr("font-weight","bold")
+        .attr("text-spacing","150%");
 
 }
 
