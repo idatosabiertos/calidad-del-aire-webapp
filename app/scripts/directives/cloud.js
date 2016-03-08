@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name comoVamosColombiaApp.directive:d3Map
+ * @name comoVamosColombiaApp.directive:cloud
  * @description
  * # d3Map
  */
@@ -16,15 +16,6 @@ function cloud(quality,element) {
   var max_width = cloud_width*1.15;
   var max_height = cloud_height*1.4; //1.3158
   var font_size=String(cloud_height*0.11) +"px" //0.0638
-
-  var fill_filename = "images/cloud_4.svg"
-  if (quality <= 0.25) {
-      fill_filename = "images/cloud_1.svg";
-  } else if (quality <= 0.50) {
-      fill_filename = "images/cloud_2.svg";
-  } else if (quality <= 0.75) {
-      fill_filename = "images/cloud_3.svg";
-  }
 
   var graphic_percentage = -0.0544*Math.pow(quality,3.0)+
   0.0816*Math.pow(quality,2.0)+0.7798*quality + 0.0965;
@@ -77,12 +68,21 @@ function cloud(quality,element) {
       .attr("x", "0")
       .attr("y", "0")
 
+  if (quality <= 0.25) {
+      fill_filename = "images/cloud_1.svg";
+  } else if (quality <= 0.50) {
+      fill_filename = "images/cloud_2.svg";
+  } else if (quality <= 0.75) {
+      fill_filename = "images/cloud_3.svg";
+  } else if (quality <= 1.0) {
+      var fill_filename = "images/cloud_4.svg";
+  }
+
   filling_pattern.append("svg:image")
       .attr("id", "darkblue-cloud-svg")
       .attr("xlink:href", fill_filename)
       .attr("width", cloud_width)
       .attr("height", cloud_height);
-
 
   svg.append("rect")        // attach a rectangle
         .attr("x", margin.left)        // position the left of the rectangle
@@ -159,6 +159,19 @@ function cloud(quality,element) {
         .attr("font-weight","bold")
         .attr("text-spacing","150%");
 
+      svg.append("rect")        // attach a rectangle
+          .attr("x", margin.left)        // position the left of the rectangle
+          .attr("y", margin.bottom)         // position the top of the rectangle
+          .attr("fill","url(#filling_pattern")
+          .attr("height", cloud_height)    // set the height
+          .attr("width", cloud_width*graphic_percentage);    // set the width
+
+      svg.append("rect")        // attach a rectangle
+          .attr("x", 0)        // position the left of the rectangle
+          .attr("y", 0)         // position the top of the rectangle
+          .attr("fill","white")
+          .attr("height", max_height)    // set the height
+          .attr("width", margin.left*1.1);    // set the width
 }
 
 angular.module('calidadDelAire')

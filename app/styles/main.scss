@@ -21,7 +21,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "components/banner";
 @import "components/twitter";
 @import "components/description";
-@import "components/map";
+@import "components/map-container";
+@import "components/download";
+@import "components/linechart";
 
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";

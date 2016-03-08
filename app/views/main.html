@@ -50,7 +50,7 @@
 	</div>
 </div>
 	<div class="row-height">
-	  <div class="col-sm-7 map">
+	  <div class="col-sm-7 map-selector">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-4">
 				<select class="form-control selector-map" name="" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions">
@@ -62,7 +62,9 @@
 	  <div class="col-sm-5"></div>
 	</div>
 	<div class="row-height">
-		<div class="col-sm-7 map">
+		<div class="col-sm-7 map-container">
+			<ng-map default-style="false" zoom="15" center="[19.4090583,-99.1728374]">
+			</ng-map>
 		</div>
 		<div class="col-sm-5 clouds">
 			<table class="table">
@@ -80,8 +82,8 @@
 		</div>
 	</div>
 	<div class="row-height">
-			<div class="col-sm-7 map">
-				<div class="inside map-description">
+			<div class="col-sm-7 map-description">
+				<div class="inside">
 				<h1>Descripción del mapa</h1>
 				<h2>
 					Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -100,13 +102,24 @@
 				Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 			</h2>
 		</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
+	<div class="row-height">
+		<div class="col-sm-7"></div>
+		<div class="col-sm-5">
+			<div class="inside download-section">
+				<button type="button" class="download btn btn-primary">Descargar datos</button>
+			</div>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="linechart col-sm-12">
+			<div class "inside">
+				<highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
+			</div>
 		</div>
 	</div>
 </div>

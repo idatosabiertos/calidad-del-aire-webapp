@@ -41,8 +41,8 @@ angular.module('calidadDelAire')
       return [
         {
           name: 'Calidad del Aire (D.F.)',
-          city: 'Bogotá',
-          type: 'objetivo',
+          city: 'Montevideo',
+          type: 'linesolid',
           timeline: [{
             'date_unit': 1989,
             'value': 0.05
@@ -78,8 +78,8 @@ angular.module('calidadDelAire')
 
         {
             name: 'Calidad de Aire (Ideal)',
-            city: 'Bogotá',
-            type: 'objetivo',
+            city: 'Montevideo',
+            type: 'longdash',
             timeline: [{
               'date_unit': 1989,
               'value': 0.1
