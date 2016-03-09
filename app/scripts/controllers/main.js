@@ -8,7 +8,7 @@
  * Controller of the calidadDelAire
  */
 angular.module('calidadDelAire')
-  .controller('MainCtrl', ['$timeout', 'Api', 'Graph', function ($timeout, Api, Graph) {
+  .controller('MainCtrl', ['$timeout', '$scope','Api', 'Graph', function ($timeout, $scope,  Api, Graph) {
       var self = this;
 
       // Inititalize variables
@@ -37,13 +37,13 @@ angular.module('calidadDelAire')
       self.drawGraph = function() {
         self.showChart = true;
 
-        // Fetch the info indicator 1 to draw the graph
-        // Code here..
-        // eg. Api.indicator(self.firstSelectedOption.city, self.firstSelectedOption.indicator).then(function successCallback(){
-        //    success code here ....
-        // }, function errorCallback(){
-        //    error code here ....
-        // })
+        var twitts = []
+         Api.twitts("MXMEX").then(function successCallback(response){
+             twitts.push(response.data);
+         }, function errorCallback(response){
+             console.error(response);
+             self.showChart = false;
+         })
 
         // Fetch the info indicator 2 to draw the graph
         // Code here..
@@ -56,6 +56,8 @@ angular.module('calidadDelAire')
         // Give time for the container to draw
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
+          $scope.twitts = twitts[0]
+          console.log(twitts)
           self.chartConfig = Graph.chartConfig([Api.dummy_city()[0], Api.dummy_city()[1]]);
         }, 1000);
       };

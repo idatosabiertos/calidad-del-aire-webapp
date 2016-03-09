@@ -13,9 +13,12 @@ angular.module('calidadDelAire')
       return '/' + param;
     }
 
-    var baseUrl = 'http://104.154.49.35:5000/';
+    var baseUrl = 'http://104.197.214.72:8000/';
     var uri = {
       cities: baseUrl + 'cities',
+      twitts: function(city_id) {
+        return baseUrl + 'twitts?city_id=' + city_id;
+      },
       indicator: function(city, indicator) {
         return baseUrl + 'indicator' + uriParam(city) + uriParam(indicator);
       },
@@ -31,6 +34,10 @@ angular.module('calidadDelAire')
 
     var _cities = function() {
       return $http.get(uri.cities);
+    };
+
+    var _twitts = function(city_id) {
+      return $http.get(uri.twitts(city_id));
     };
 
     var _city = function(city, indicator) {
@@ -118,7 +125,7 @@ angular.module('calidadDelAire')
     return {
       dateOptions: _dateOptions,
       dummy_city: _dummy_city,
-      // cities: _cities,
+      twitts: _twitts
       // indicator: _indicator,
       //
       // // dummy datasets
