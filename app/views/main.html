@@ -19,31 +19,17 @@
 		</div>
 	  <div class="col-sm-5 twitter col-height">
 			<div class="inside">
-				<h1>Twitter <span class="twitter-handle">@respira_app</span></h1>
+				<h1>Twitter <span class="twitter-handle">@{{ twitts.account }}</span></h1>
 				<span><h2>__</h2></p></span>
 				<table class="table">
 				  <tbody>
-				    <tr>
-				      <td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
-				      <td>
-								<span class="text-tweet">Uruguay en el top ten de innovación tecnológica y prevención sobre polución de aire!<p></span>
-								<span class="go-tweet">Ver >></span>
-							</td>
-				    </tr>
-				    <tr>
-							<td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
-				      <td>
-								<span class="text-tweet">Les recomendamos esta web acerca de la polución en las ciudades y como preveer enfermedades<p></span>
-								<span class="go-tweet">Ver >></span>
-							</td>
-				    </tr>
-						<tr>
+						<tr ng-repeat="twitt in twitts.twitts">
 							<td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
 							<td>
-								<span class="text-tweet">Ya estamos funcionando! Gracias a todos por el apoyo.<p></span>
-								<span class="go-tweet">Ver >></span>
+								<span class="text-tweet">{{ twitt.text }}<p></span>
+								<span class="go-tweet"><a href="{{ twitt.url }}">Ver >></a></span>
 							</td>
-						</tr>
+					  </tr>
 				  </tbody>
 				</table>
 		</div>

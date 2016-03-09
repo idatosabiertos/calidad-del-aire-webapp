@@ -52,12 +52,11 @@ angular.module('calidadDelAire')
         // }, function errorCallback(){
         //    error code here ....
         // })
-
+        console.log(twitts)
         // Give time for the container to draw
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.twitts = twitts[0]
-          console.log(twitts)
           self.chartConfig = Graph.chartConfig([Api.dummy_city()[0], Api.dummy_city()[1]]);
         }, 1000);
       };
