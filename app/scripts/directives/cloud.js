@@ -240,14 +240,10 @@ function cloud(quality,pollutant,element) {
             text_out  = "Producto de la mala combustión de sólidos y de cadenas largas de combustible (más pesadas que la gasolina), que reaccionan con el aire. Es precursora de las partículas PM 2.5. Altamente tóxico.";
         }
         var text_div = d3.selectAll("section.text_in").text(text_out);
-        var text_title = d3.selectAll("section.text_title").text(pollutant);
-
       }
 
       function mapMouseOut(d){
         var text_div = d3.selectAll("section.text_in").text("Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes.");
-        var text_title = d3.selectAll("section.text_title").text("Descripción del Contaminante");
-
       }
 
 
