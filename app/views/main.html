@@ -19,7 +19,7 @@
 		</div>
 	  <div class="col-sm-5 twitter col-height">
 			<div class="inside">
-				<h1>Twitter <span class="twitter-handle">@{{ twitts.account }}</span></h1>
+				<h1>Twitter <span class="twitter-handle"><a class="twitter-handle" href="http://twitter.com/{{ twitts.account }}">@{{ twitts.account }}</a></span></h1>
 				<span><h2>__</h2></p></span>
 				<table class="table">
 				  <tbody>
@@ -56,12 +56,12 @@
 			<table class="table">
 				<tbody>
 					<tr>
-						<td><cloud quality=0.45></cloud></td>
-						<td><cloud quality=0.90></cloud></td>
+						<td><cloud quality=0.45 pollutant="NO2"></cloud></td>
+						<td><cloud quality=0.90 pollutant="CO"></cloud></td>
 					</tr>
 					<tr>
-						<td><cloud quality=0.70></cloud></td>
-						<td><cloud quality=0.25></cloud></td>
+						<td><cloud quality=0.70 pollutant="O3"></cloud></td>
+						<td><cloud quality=0.25 pollutant="PM10"></cloud></td>
 					</tr>
 				</tbody>
 			</table>
@@ -83,12 +83,11 @@
 		</div>
 		<div class="col-sm-5 clouds">
 			<div class="inside clouds-description">
-			<h1>Descripción de las gráficas</h1>
+			<h1><section class="text_title">Descripción del Contaminante</section></h1>
 			<h2>
-				Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				<section class="text_in">
+					Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes
+				</section>
 			</h2>
 		</div>
 		</div>
