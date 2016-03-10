@@ -53,6 +53,14 @@ function cloud(quality,pollutant,element) {
       .on("mouseover", mapMouseOver)
       .on("mouseout", mapMouseOut);
 
+
+  svg.append("circle")        // attach a rectangle
+      .attr("cx", max_width/2)        // position the left of the rectangle
+      .attr("cy", max_height/2)         // position the top of the rectangle
+      .attr("r",max_width/2)
+      .attr("id","fill_rect")
+      .attr("fill","transparent")
+
   svg.append("svg:image")
       .attr("x", margin.left)        // position the left of the rectangle
       .attr("y", margin.bottom+0.4*cloud_height)
@@ -90,13 +98,15 @@ function cloud(quality,pollutant,element) {
   svg.append("rect")        // attach a rectangle
         .attr("x", margin.left)        // position the left of the rectangle
         .attr("y", margin.top+0.4*cloud_height)         // position the top of the rectangle
-        .attr("fill","url(#filling_pattern")
+        .attr("id", "rect_dark_cloud")
+        .attr("fill","url(#filling_pattern)")
         .attr("height", cloud_height)    // set the height
         .attr("width", cloud_width*graphic_percentage);    // set the width
 
   svg.append("rect")        // attach a rectangle
         .attr("x", 0)        // position the left of the rectangle
         .attr("y", margin.top+0.4*cloud_height)         // position the top of the rectangle
+        .attr("id","fill_rect")
         .attr("fill","white")
         .attr("height", cloud_height)    // set the height
         .attr("width", margin.left*1.1);    // set the width
@@ -157,7 +167,7 @@ function cloud(quality,pollutant,element) {
           .attr("text-spacing","150%")
           .attr("font-weight","bolder");
 
-  var title_box = svg.selectAll("#title_box")
+  var title_box = svg.selectAll("*")
           .on("mouseover", function() {
               svg.selectAll("#title_box")
                 .classed("hover",true);
@@ -204,12 +214,7 @@ function cloud(quality,pollutant,element) {
         .attr("font-weight","bold")
         .attr("text-spacing","150%");
 
-      svg.append("rect")        // attach a rectangle
-          .attr("x", margin.left)        // position the left of the rectangle
-          .attr("y", margin.bottom + 0.4*cloud_height)         // position the top of the rectangle
-          .attr("fill","url(#filling_pattern")
-          .attr("height", cloud_height)    // set the height
-          .attr("width", cloud_width*graphic_percentage);    // set the width
+
 
       svg.append("rect")        // attach a rectangle
           .attr("x", 0)        // position the left of the rectangle

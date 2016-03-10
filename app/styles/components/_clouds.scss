@@ -5,6 +5,14 @@
   line-height: 150%;
 }
 
+.clouds-title h1 {
+  font-size:20px;
+  padding-top: 5vh;
+  color: #0A136B;
+  letter-spacing: 1px;
+  line-height: 150%;
+}
+
 .clouds h2 {
   font-size: 16px;
   color: #707072;
@@ -13,7 +21,9 @@
 }
 
 .clouds-description {
-  padding-left: 3vw;
+  border: 3px solid #0B1270;
+  border-radius: 10px;
+  margin-top: 6vh;
 }
 
 .clouds td {
@@ -22,18 +32,24 @@
 
 .text_in {
   margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-bottom: 0px;
+  padding-left:3vw;
+  padding-right:3vw;
+  padding-bottom:1vh;
 }
 
 .text_title {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 
+
 text.hover {
-  fill: #ffffff !important;
+  fill: #ffffff;
 }
 
 rect.hover {
-  fill: #0B1270 !important;
+  fill: #0B1270;
 }
