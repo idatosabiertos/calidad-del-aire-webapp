@@ -79,6 +79,7 @@ angular.module('calidadDelAire')
 
 
            var pollutants_city_history = {}
+           var path_to_file_download = "http://104.197.214.72:8000/cities-pollutant-timeline?geographical_zone=MXMEX&dateUnit=" +self.dateSelected.name + "&filetype=csv"
            Api.pollutant_data("MXMEX", self.dateSelected.name, 0).then(function successCallback(response){
                console.log(response)
                pollutants_city_history = response.data
@@ -93,6 +94,7 @@ angular.module('calidadDelAire')
           $scope.twitts = twitts[0]
           $scope.pollutant_cloud_array = pollutant_cloud_array
           $scope.stations_circle_data = stations_circle_data
+          $scope.path_to_file_download = path_to_file_download
           console.log(pollutant_cloud_array)
           console.log(stations_circle_data)
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
