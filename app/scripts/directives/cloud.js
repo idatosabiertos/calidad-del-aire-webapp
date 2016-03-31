@@ -11,7 +11,7 @@ function cloud(quality,pollutant,element) {
   var cloud_height = 126;  // 380
   var cloud_width = 200;   // 600
 
-  var quality_over100 = quality*100;
+  var quality_over100 = parseInt(quality*100);
   var margin_all = cloud_width*0.033333;
   var max_width = cloud_width*1.15;
   var max_height = cloud_height*1.8; //1.3158
@@ -84,7 +84,7 @@ function cloud(quality,pollutant,element) {
       fill_filename = "images/cloud_2.svg";
   } else if (quality <= 0.75) {
       fill_filename = "images/cloud_3.svg";
-  } else if (quality <= 1.0) {
+  } else if (quality > 0.75) {
       var fill_filename = "images/cloud_4.svg";
   }
 

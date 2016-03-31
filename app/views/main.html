@@ -39,8 +39,8 @@
 	  <div class="col-sm-7 map-selector">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-4">
-				<select class="form-control selector-map" name="" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions">
-					<option value="">Periodo de Tiempo</option>
+				<select class="form-control selector-map" ng-init="main.dateSelected = main.dateOptions[1]" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions" ng-change="main.drawGraph()">
+					<option>Periodo de Tiempo</option>
 				</select>
 			</div>
 			<div class="col-sm-1"></div>
@@ -51,19 +51,27 @@
 	</div>
 	<div class="row-height">
 		<div class="col-sm-7 map-container">
-			<ng-map default-style="false" zoom="15" center="[19.4090583,-99.1728374]">
+			<ng-map default-style="false" zoom="11" center="[19.4139954,-99.1353833]">
+					<shape ng-repeat="station in stations_circle_data"
+				 name="circle"
+				 stroke-weight="1"
+				 radius="{{station.quality*1000}}"
+				 center="[{{station.lat}}, {{station.long}}]"
+				 stroke-color="{{station.color}}"
+				 fill-color="{{station.color}}"
+	 		 		/>
 			</ng-map>
 		</div>
 		<div class="col-sm-5 clouds">
 			<table class="table">
 				<tbody>
 					<tr>
-						<td><cloud quality=0.45 pollutant="NO2"></cloud></td>
-						<td><cloud quality=0.90 pollutant="CO"></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[0][0]}} quality={{pollutant_cloud_array[0][1]}} ></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[1][0]}} quality={{pollutant_cloud_array[1][1]}}></cloud></td>
 					</tr>
 					<tr>
-						<td><cloud quality=0.70 pollutant="O3"></cloud></td>
-						<td><cloud quality=0.25 pollutant="PM10"></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[2][0]}} quality={{pollutant_cloud_array[2][1]}}></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[3][0]}} quality={{pollutant_cloud_array[3][1]}}></cloud></td>
 					</tr>
 				</tbody>
 			</table>

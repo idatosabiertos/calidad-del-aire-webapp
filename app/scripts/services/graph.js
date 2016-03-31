@@ -22,7 +22,7 @@ angular.module('calidadDelAire')
         var _serie = {
           name: indicatorName,
           type: 'spline',
-          stack: '1',
+          stack: '1'
           // tooltip options missing to build
           // tooltip: {
           //   valueSuffix: ' S/U'
@@ -32,7 +32,7 @@ angular.module('calidadDelAire')
 
         // Build the data object
         _serie.data =  lodash.map(indicatorData, function(data){
-          return [data.date_unit.toString(), data.value];
+          return [data.date_unit, data.value];
         });
 
         return _serie;
@@ -43,7 +43,7 @@ angular.module('calidadDelAire')
           name: indicatorName,
           type: 'spline',
           dashStyle: 'longdash',
-          stack: '1',
+          stack: '1'
           // tooltip options missing to build
           // tooltip: {
           //   valueSuffix: ' S/U'
@@ -53,7 +53,7 @@ angular.module('calidadDelAire')
 
         // Build the data object
         _serie.data =  lodash.map(indicatorData, function(data){
-          return [data.date_unit.toString(), data.value];
+          return [data.date_unit, data.value];
         });
 
         return _serie;
@@ -65,10 +65,10 @@ angular.module('calidadDelAire')
           console.log(indicatorData)
           switch(indicatorData.type) {
             case 'linesolid':
-            return _buildSolidLine(indicatorData.name, indicatorData.city, indicatorData.timeline);
+            return _buildSolidLine(indicatorData.name, indicatorData.city, indicatorData.timeline.reverse());
 
             case 'longdash':
-            return _buildDashedLine(indicatorData.name, indicatorData.city, indicatorData.timeline);
+            return _buildDashedLine(indicatorData.name, indicatorData.city, indicatorData.timeline.reverse());
           }}));
       };
 

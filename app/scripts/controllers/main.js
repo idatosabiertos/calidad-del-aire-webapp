@@ -12,7 +12,7 @@ angular.module('calidadDelAire')
       var self = this;
 
       // Inititalize variables
-      self.dateSelected = undefined;
+      self.dateSelected = "day";
       self.dateOptions = Api.dateOptions;
 
 
@@ -22,7 +22,6 @@ angular.module('calidadDelAire')
         // self.data = Api.dummy_cities();
 
         self.drawGraph();
-
         // Uncomment this for real functionality
         // Api.cities().then(function successCallback(response){
         //   // Fetch graph config options
@@ -45,20 +44,60 @@ angular.module('calidadDelAire')
              self.showChart = false;
          })
 
-        // Fetch the info indicator 2 to draw the graph
-        // Code here..
-        // eg. Api.indicator(self.secondSelectedOption.city, self.secondSelectedOption.indicator).then(function successCallback(){
-        //    success code here ....
-        // }, function errorCallback(){
-        //    error code here ....
-        // })
-        console.log(twitts)
+         var stations_circle_data = []
+         var pollutant_cloud_array = []
+         var response_list = []
+         Api.stations("MXMEX").then(function successCallback(response){
+             response.data.data.forEach(function(val, i) {
+               Api.pollutant_data(val.station_id, self.dateSelected.name, 1).then(function successCallback(response_level2){
+                   response_list = Api.convertCalltoObj(response_level2.data)
+                   var normalized_value = response_list.max[0].normalized
+                   stations_circle_data.push({"name":val.name, "long":val.longitude, "lat":val.latitude, "quality": normalized_value , "color": Api.coulorer(normalized_value)})
+                }, function errorCallback(response_level2){
+                    console.error(response_level2);
+                });
+             });
+          }, function errorCallback(response){
+              console.error(response);
+              self.showChart = false;
+          });
+
+          var pollutants_city_now = {}
+          var pollutant_cloud_array = []
+          Api.pollutant_data("MXMEX", self.dateSelected.name, 1).then(function successCallback(response){
+              pollutants_city_now = response.data
+              var pollutants_array = Api.convertCalltoObj(pollutants_city_now)
+              for (var key in pollutants_array) {
+                if (pollutants_array[key][0]["normalized"] != "nan" & key != "max") {
+                  pollutant_cloud_array.push([key, parseFloat(pollutants_array[key][0]["normalized"])]);
+                }
+              }
+           }, function errorCallback(response){
+               console.error(response);
+               self.showChart = false;
+           });
+
+
+           var pollutants_city_history = {}
+           Api.pollutant_data("MXMEX", self.dateSelected.name, 0).then(function successCallback(response){
+               console.log(response)
+               pollutants_city_history = response.data
+            }, function errorCallback(response){
+                console.error(response);
+                self.showChart = false;
+            });
+
         // Give time for the container to draw
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.twitts = twitts[0]
-          self.chartConfig = Graph.chartConfig([Api.dummy_city()[0], Api.dummy_city()[1]]);
-        }, 1000);
+          $scope.pollutant_cloud_array = pollutant_cloud_array
+          $scope.stations_circle_data = stations_circle_data
+          console.log(pollutant_cloud_array)
+          console.log(stations_circle_data)
+          var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
+          self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
+        }, 5000);
       };
 
       self.initialize();
