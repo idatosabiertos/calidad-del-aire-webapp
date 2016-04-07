@@ -81,14 +81,12 @@ angular.module('calidadDelAire')
            var pollutants_city_history = {}
            var path_to_file_download = "http://104.197.214.72:8000/cities-pollutant-timeline?geographical_zone=MXMEX&dateUnit=" +self.dateSelected.name + "&filetype=csv"
            Api.pollutant_data("MXMEX", self.dateSelected.name, 0).then(function successCallback(response){
-               console.log(response)
                pollutants_city_history = response.data
             }, function errorCallback(response){
                 console.error(response);
                 self.showChart = false;
             });
 
-            console.log(pollutants_city_history)
 
         // Give time for the container to draw
         $timeout(function(){
@@ -105,7 +103,7 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
-        }, 5000);
+        }, 10000);
       };
 
       self.initialize();
