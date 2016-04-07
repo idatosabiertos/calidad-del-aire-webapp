@@ -98,10 +98,10 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.pollutant_cloud_array = pollutant_cloud_array
           $scope.stations_circle_data = stations_circle_data
-          $scope.twitts = twitts[0]
         }, 1000);
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
+          console.log(pollutants_city_history)
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
         }, 5000);
