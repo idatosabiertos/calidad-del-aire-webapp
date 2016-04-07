@@ -51,7 +51,7 @@ angular.module('calidadDelAire')
              response.data.data.forEach(function(val, i) {
                Api.pollutant_data(val.station_id, self.dateSelected.name, 1).then(function successCallback(response_level2){
                    response_list = Api.convertCalltoObj(response_level2.data)
-                   var normalized_value = response_list.max.normalized
+                   var normalized_value = response_list.max[0].normalized
                    stations_circle_data.push({"name":val.name, "long":val.longitude, "lat":val.latitude, "quality": normalized_value , "color": Api.coulorer(normalized_value)})
                 }, function errorCallback(response_level2){
                     console.error(response_level2);
