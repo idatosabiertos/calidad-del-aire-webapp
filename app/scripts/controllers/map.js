@@ -1,17 +1,12 @@
 angular.module('calidadDelAire')
-  .controller('MapCtrl', [$scope, function(NgMap,$scope) {
+  .controller('MapCtrl', function($scope, NgMap) {
     NgMap.getMap().then(function(map) {
-      $scope.objMap = map;
+      console.log(map.getCenter());
+      console.log('markers', map.markers);
+      console.log('shapes', map.shapes);
     });
-
-    $scope.showInfoWindow = function (event, p) {
-      var infowindow = new google.maps.InfoWindow();
-      var center = new google.maps.LatLng(p[0],p[1]);
-
-      infowindow.setContent(
-          '<h3>' + p + '</h3>');
-
-      infowindow.setPosition(center);
-      infowindow.open($scope.objMap);
+    $scope.showCity = function(event, city) {
+      $scope.selectedCity = city;
+      $scope.map.showInfoWindow('myInfoWindow', this);
     };
-  }]);
+  });
