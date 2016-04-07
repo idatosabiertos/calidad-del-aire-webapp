@@ -88,6 +88,8 @@ angular.module('calidadDelAire')
                 self.showChart = false;
             });
 
+            console.log(pollutants_city_history)
+
         // Give time for the container to draw
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
