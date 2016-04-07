@@ -92,14 +92,16 @@ angular.module('calidadDelAire')
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.twitts = twitts[0]
+        }, 500);
+
+        $timeout(function(){
+          // self.chartConfig = Graph.chartConfig(self.data);
           $scope.pollutant_cloud_array = pollutant_cloud_array
           $scope.stations_circle_data = stations_circle_data
           $scope.path_to_file_download = path_to_file_download
-          console.log(pollutant_cloud_array)
-          console.log(stations_circle_data)
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
-        }, 5000);
+        }, 3000);
       };
 
       self.initialize();
