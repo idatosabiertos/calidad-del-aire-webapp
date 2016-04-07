@@ -1,9 +1,9 @@
 angular.module('calidadDelAire')
   .controller('MapCtrl', function(NgMap) {
     NgMap.getMap().then(function(map) {
-      console.log(map.getCenter());
-      console.log('markers', map.markers);
-      console.log('shapes', map.shapes);
-      console.log('lololol')
+      google.maps.event.addListener(circle, 'click', function(){
+              infoWindow.setContent('<h2>' + circle.name + '</h2>' + circle.quality);
+              infoWindow.open($scope.map, circle);
+          });
     });
   });

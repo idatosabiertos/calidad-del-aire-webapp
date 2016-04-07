@@ -98,12 +98,12 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.pollutant_cloud_array = pollutant_cloud_array
           $scope.stations_circle_data = stations_circle_data
-        }, 1000);
+        }, 5000);
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
-        }, 10000);
+        }, 7000);
       };
 
       self.initialize();
