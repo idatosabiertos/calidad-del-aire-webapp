@@ -104,7 +104,7 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
-        }, 3000);
+        }, 5000);
       };
 
       self.initialize();
