@@ -65,10 +65,10 @@ angular.module('calidadDelAire')
           console.log(indicatorData)
           switch(indicatorData.type) {
             case 'linesolid':
-            return _buildSolidLine(indicatorData.name, indicatorData.city, indicatorData.timeline.reverse());
+            return _buildSolidLine(indicatorData.name, indicatorData.city, indicatorData.timeline);
 
             case 'longdash':
-            return _buildDashedLine(indicatorData.name, indicatorData.city, indicatorData.timeline.reverse());
+            return _buildDashedLine(indicatorData.name, indicatorData.city, indicatorData.timeline);
           }}));
       };
 
