@@ -48,17 +48,31 @@
 		</div>
 	</div>
 	<div class="row-height">
-		<div class="col-sm-7 map-container">
+		<div class="col-sm-7 map-container" ng-controller="MapCtrl as vm">
 			<ng-map default-style="false" zoom="11" center="[19.4139954,-99.1353833]">
-					<shape ng-repeat="station in stations_circle_data"
+				<span ng-repeat="station in stations_circle_data">
+					<shape
 				 name="circle"
 				 stroke-weight="1"
 				 radius="{{station.quality*1000}}"
 				 center="[{{station.lat}}, {{station.long}}]"
 				 stroke-color="{{station.color}}"
 				 fill-color="{{station.color}}"
-				 on-mouseover="console.log('watwat')"
+				 on-mouseover="vm.showDetail('{{station}}')"
+				 on-mouseout= "vm.hideDetail('{{station}}')"
+				 on-click="vm.hideDetail('{{station}}')"
+				 id = "circle-{{station.name}}"
 	 		 		/>
+				</span>
+				<span ng-if="active_station">
+					<marker id="marker" position="{{active_station}}" icon="none">
+					</marker>
+					<info-window id="bar" visible-on-marker="marker" >
+						<div ng-non-bindable="">
+							<a href="#" ng-click="MapCtrl.clicked()">Lawl</a>
+						</div>
+					</info-window>
+				</span>
 			</ng-map>
 		</div>
 		<div class="col-sm-5 clouds">

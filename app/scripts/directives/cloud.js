@@ -22,11 +22,15 @@ function cloud(quality,pollutant,element) {
   //var graphic_percentage = 0.66*quality+0.17
   //var graphic_percentage = quality
 
-  var text_position = graphic_percentage
+  var text_position_x = graphic_percentage
+  var text_position_y = 0
   if (quality < 0.1) {
-      text_position = 0.1752416
-  } else if (quality > 0.85) {
-      text_position = 0.7848776000000001
+      text_position_x = 0.1752416
+  } else if (quality > 0.85 & quality < 1.0 ) {
+      text_position_x = 0.7848776000000001
+  } else if (quality >= 1.0) {
+      text_position_x = 0.92
+      text_position_y = -0.23
   }
 
   var text_0_label_weight= "normal"
@@ -52,7 +56,6 @@ function cloud(quality,pollutant,element) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .on("mouseover", mapMouseOver)
       .on("mouseout", mapMouseOut);
-
 
   svg.append("circle")        // attach a rectangle
       .attr("cx", max_width/2)        // position the left of the rectangle
@@ -204,17 +207,16 @@ function cloud(quality,pollutant,element) {
   // value Textlabels
 
   svg.append("text")
-        .attr("x", margin.left + (text_position-0.02)*cloud_width)
-        .attr("y", margin.top + 1.66*cloud_height)
-        .text(text_value_label)
+        .attr("x", margin.left + (text_position_x-0.02)*cloud_width)
+        .attr("y", margin.top + 1.66*cloud_height+ text_position_y*cloud_height)
+        .attr("id","label_cantidad")
         .attr("font-family", "GothamRnd")
         .attr("font-size", font_size)
         .attr("font-weight","bold")
         .attr("fill", "#0F156E")
         .attr("font-weight","bold")
-        .attr("text-spacing","150%");
-
-
+        .attr("text-spacing","150%")
+        .text(text_value_label);
 
       svg.append("rect")        // attach a rectangle
           .attr("x", 0)        // position the left of the rectangle
@@ -223,6 +225,7 @@ function cloud(quality,pollutant,element) {
           .attr("height", cloud_height)    // set the height
           .attr("width", margin.left*1.1);    // set the width
 
+      var circle_fill = "transparent"
       function mapMouseOver(d){
         var text_out  = "Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes";
         console.log(text_out)
@@ -246,6 +249,17 @@ function cloud(quality,pollutant,element) {
         var text_div = d3.selectAll("section.text_in").text("Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes.");
       }
 
+      svg.append("circle")        // attach a rectangle
+          .attr("cx", max_width/2)        // position the left of the rectangle
+          .attr("cy", max_height/2)         // position the top of the rectangle
+          .attr("r",max_width)
+          .attr("id","fill_circle")
+          .attr("fill","transparent")
+
+      if (pollutant=="none") {
+          console.log(svg.selectAll("circle"))
+          svg.selectAll("#fill_circle").attr("fill","white")
+      }
 
 }
 

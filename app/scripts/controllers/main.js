@@ -69,7 +69,10 @@ angular.module('calidadDelAire')
               var pollutants_array = Api.convertCalltoObj(pollutants_city_now)
               for (var key in pollutants_array) {
                 if (pollutants_array[key][0]["normalized"] != "nan" & key != "max") {
-                  pollutant_cloud_array.push([key, parseFloat(pollutants_array[key][0]["normalized"])]);
+                  pollutant_cloud_array.unshift([key, parseFloat(pollutants_array[key][0]["normalized"])]);
+                }
+                for (var i = 1; i < 4-pollutant_cloud_array.length; i++) {
+                  pollutant_cloud_array.push(["none","none"]);
                 }
               }
            }, function errorCallback(response){
@@ -79,7 +82,7 @@ angular.module('calidadDelAire')
 
 
            var pollutants_city_history = {}
-           var path_to_file_download = "http://104.197.214.72:8000/cities-pollutant-timeline?geographical_zone=MXMEX&dateUnit=" +self.dateSelected.name + "&filetype=csv"
+           var path_to_file_download = "http://localhost:8000/cities-pollutant-timeline?geographical_zone=MXMEX&dateUnit=" +self.dateSelected.name + "&filetype=csv"
            Api.pollutant_data("MXMEX", self.dateSelected.name, 0).then(function successCallback(response){
                pollutants_city_history = response.data
             }, function errorCallback(response){
@@ -98,12 +101,12 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.pollutant_cloud_array = pollutant_cloud_array
           $scope.stations_circle_data = stations_circle_data
-        }, 5000);
+        }, 1000);
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           var data_lines = Api.convertHistorytoLines(Api.convertCalltoObj(pollutants_city_history))
           self.chartConfig = Graph.chartConfig(Api.quality_graph(data_lines[0], data_lines[1]));
-        }, 7000);
+        }, 2000);
       };
 
       self.initialize();
