@@ -7,10 +7,10 @@
 				<span><h2>__</h2></p></span>
 				<span>
 					<h3>
-					 Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					 Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					 Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					 Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					 El aire que respiramos es una pieza clave de nuestra salud. Saber
+					 cuál es el estado de la calidad del oxígeno que respiramos es un
+					 derecho que contamos todos los que habitamos una metrópoli. Entérate
+					 de la calidad del aire actual en relación con los estándares de la OMS.
 				 </h3>
 				</span>
 			</div>
@@ -69,7 +69,8 @@
 					</marker>
 					<info-window id="bar" visible-on-marker="marker" >
 						<div ng-non-bindable="">
-							<a href="#" ng-click="MapCtrl.clicked()">Lawl</a>
+							<strong>{{active_station_data.name}}</strong><p>
+							Calidad: {{active_station_data.quality}} veces el límite
 						</div>
 					</info-window>
 				</span>
@@ -95,12 +96,12 @@
 				<div class="inside">
 				<h1>Descripción del mapa</h1>
 				<h2>
-					Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Charizard Lorem ipsum dolor sit amet.
+					En el mapa puedes observar las estaciones de la ciudad. Los puntos
+					con una circunferencia más amplia, son aquellos que están observando
+					una calidad del aire inferior que el resto de la estaciones. Este
+					número, es calculado a partir de los estándares de la Organización
+					Mundial de la Salud, y en realidad, lo que observas, es un multiplicador
+					de los niveles promedios recomendados por tal organización.
 				</h2>
 			</div>
 		</div>
@@ -126,7 +127,7 @@
 	</div>
 	<div class="row-height">
 		<div class="linechart col-sm-12">
-			<div class "inside">
+			<div class="inside">
 				<highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
 			</div>
 		</div>

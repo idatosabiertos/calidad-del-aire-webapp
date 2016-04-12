@@ -106,14 +106,14 @@ angular.module('calidadDelAire')
     var _quality_graph = function(pollutant_line, base_line) {
       return [
         {
-          name: 'Calidad del Aire (D.F.)',
+          name: 'Contaminante más alto en CDMX',
           city: 'Ciudad de México',
           type: 'linesolid',
           timeline: pollutant_line
         },
 
         {
-            name: 'Calidad de Aire (Ideal)',
+            name: 'Limite Permitido por la OMS',
             city: 'Ciudad de México',
             type: 'longdash',
             timeline: base_line

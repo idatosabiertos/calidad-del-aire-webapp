@@ -38,6 +38,8 @@ module.exports = function(config) {
       'bower_components/highcharts/modules/exporting.js',
       'bower_components/highcharts-ng/dist/highcharts-ng.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/google-maps/lib/Google.js',
+      'bower_components/ngmap/build/scripts/ng-map.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
