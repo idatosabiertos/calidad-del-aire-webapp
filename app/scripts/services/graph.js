@@ -53,6 +53,7 @@ angular.module('calidadDelAire')
 
         // Build the data object
         _serie.data =  lodash.map(indicatorData, function(data){
+          console.log(data)
           return [data.date_unit, data.value];
         });
 
