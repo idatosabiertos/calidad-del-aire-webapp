@@ -255,6 +255,16 @@ function cloud(quality,pollutant,element) {
         var text_div = d3.selectAll("section.text_in").text("Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes.");
       }
 
+
+      if (pollutant=="none") {
+          svg.append("circle")        // attach a rectangle
+              .attr("cx", max_width/2)        // position the left of the rectangle
+              .attr("cy", max_height/2)         // position the top of the rectangle
+              .attr("r",max_width)
+              .attr("id","fill_circle")
+              .attr("fill","white")
+      }
+
 }
 
 angular.module('calidadDelAire')
