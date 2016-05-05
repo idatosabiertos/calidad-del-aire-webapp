@@ -182,6 +182,9 @@ function cloud(quality,pollutant,element) {
 
   // axis Textlabels
 
+  svg.select("#")
+        .attr("fill", "#ffffff")
+
   svg.append("text")
         .attr("x", margin.left + 0.08*cloud_width)
         .attr("y", margin.top + 1.66*cloud_height)
