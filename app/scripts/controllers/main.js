@@ -96,7 +96,7 @@ angular.module('calidadDelAire')
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.twitts = twitts[0]
           $scope.path_to_file_download = path_to_file_download
-        }, 500);
+        }, 1000);
         $timeout(function(){
           // self.chartConfig = Graph.chartConfig(self.data);
           $scope.pollutant_cloud_array = pollutant_cloud_array
