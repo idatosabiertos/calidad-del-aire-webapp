@@ -57,6 +57,14 @@ function cloud(quality,pollutant,element) {
       .on("mouseover", mapMouseOver)
       .on("mouseout", mapMouseOut);
 
+    svg.append("circle")        // attach a rectangle
+      .attr("cx", max_width/2)        // position the left of the rectangle
+      .attr("cy", max_height/2)         // position the top of the rectangle
+      .attr("r",max_width*2)
+      .attr("id","fill_white_bg")
+      .attr("fill","White")
+
+
   svg.append("circle")        // attach a rectangle
       .attr("cx", max_width/2)        // position the left of the rectangle
       .attr("cy", max_height/2)         // position the top of the rectangle
@@ -179,11 +187,6 @@ function cloud(quality,pollutant,element) {
               svg.selectAll("#title_box")
                 .classed("hover",false)
         })
-
-  // axis Textlabels
-
-  svg.select("#")
-        .attr("fill", "#ffffff")
 
   svg.append("text")
         .attr("x", margin.left + 0.08*cloud_width)
