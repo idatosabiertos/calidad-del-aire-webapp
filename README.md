@@ -1,4 +1,4 @@
-# Calidad del Aire
+# Calidad del Aire [![Build Status](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp.svg?branch=master)](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp)
 
 ## Build & development
 
