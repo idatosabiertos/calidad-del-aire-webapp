@@ -12,7 +12,7 @@ angular.module('calidadDelAire')
       var _buildChartTitle = function(datum) {
         if(datum.length > 1) {
           console.log(datum[0].name + ' vs ' + datum[1].name);
-          return datum[0].name + ' vs ' + datum[1].name
+          return datum[0].name + ' vs ' + datum[1].name;
         }
         console.log(datum[0].name);
         return datum[0].name;
@@ -62,7 +62,7 @@ angular.module('calidadDelAire')
       var _buildGraphSeries = function(datum) {
         return lodash.flatten(lodash.map(datum, function(indicatorData){
           // Determine which kind of line we're building
-          console.log(indicatorData)
+          console.log(indicatorData);
           switch(indicatorData.type) {
             case 'linesolid':
             return _buildSolidLine(indicatorData.name, indicatorData.city, indicatorData.timeline);

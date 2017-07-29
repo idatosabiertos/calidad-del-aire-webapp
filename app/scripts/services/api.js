@@ -11,18 +11,18 @@ angular.module('calidadDelAire')
   .service('Api', ['$http', function ($http) {
     function uriParam(param) {
       return '/' + param;
-    };
+    }
 
     function convertCalltoObj(return_list) {
-      var return_Obj = {}
-      return_list.pollutants.forEach(function (val,i){
-        return_Obj[val.pollutant] = val.timeline
+      var return_Obj = {};
+      return_list.pollutants.forEach(function (val,i){// jshint ignore:line
+        return_Obj[val.pollutant] = val.timeline;
       });
-      return return_Obj
-    };
+      return return_Obj;
+    }
 
     function coulorer(quality) {
-      var fill
+      var fill;
       if (quality <= 0.25) {
           fill = "#A5E5FF";
       } else if (quality <= 0.50) {
@@ -32,18 +32,18 @@ angular.module('calidadDelAire')
       } else if (quality > 0.75) {
           fill = "#151E8A";
       }
-      return fill
-    };
+      return fill;
+    }
 
     function convertHistorytoLines(pollutants_city_history_as_list) {
-      var historical_timeline = []
-      var baseline = []
-      pollutants_city_history_as_list.max.forEach(function (val, i) {
-        historical_timeline.push({'date_unit': val.time, 'value': parseFloat(val.normalized)})
-        baseline.push({'date_unit': val.time, 'value':1.0})
+      var historical_timeline = [];
+      var baseline = [];
+      pollutants_city_history_as_list.max.forEach(function (val, i) {// jshint ignore:line
+        historical_timeline.push({'date_unit': val.time, 'value': parseFloat(val.normalized)});
+        baseline.push({'date_unit': val.time, 'value':1.0});
       });
-      return [historical_timeline, baseline]
-    };
+      return [historical_timeline, baseline];
+    }
 
     var baseUrl = 'http://52.39.1.207:8000/';
     var uri = {
@@ -70,7 +70,7 @@ angular.module('calidadDelAire')
     ];
 
 
-    var _cities = function() {
+    var _cities = function() {// jshint ignore:line
       return $http.get(uri.cities);
     };
 
@@ -78,7 +78,7 @@ angular.module('calidadDelAire')
       return $http.get(uri.twitts(city_id));
     };
 
-    var _city = function(city, indicator) {
+    var _city = function(city, indicator) {// jshint ignore:line
       return $http.get(uri.indicator(city, indicator));
     };
 
@@ -87,19 +87,19 @@ angular.module('calidadDelAire')
     };
 
     var _stations = function(location){
-      return $http.get(uri.stations(location))
+      return $http.get(uri.stations(location));
     };
 
     var _convertCalltoObj = function(return_list) {
-      return convertCalltoObj(return_list)
+      return convertCalltoObj(return_list);
     };
 
     var _convertHistorytoLines = function(pollutants_city_history_as_list) {
-      return convertHistorytoLines(pollutants_city_history_as_list)
+      return convertHistorytoLines(pollutants_city_history_as_list);
     };
 
     var _coulorer = function(quality){
-      return coulorer(quality)
+      return coulorer(quality);
     };
 
 

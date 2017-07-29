@@ -15,31 +15,31 @@ function cloud(quality,pollutant,element) {
   var margin_all = cloud_width*0.033333;
   var max_width = cloud_width*1.15;
   var max_height = cloud_height*1.8; //1.3158
-  var font_size=String(cloud_height*0.11) +"px" //0.0638
+  var font_size=String(cloud_height*0.11) +"px"; //0.0638
 
   var graphic_percentage = -0.0544*Math.pow(quality,3.0)+
   0.0816*Math.pow(quality,2.0)+0.7798*quality + 0.0965;
   //var graphic_percentage = 0.66*quality+0.17
   //var graphic_percentage = quality
 
-  var text_position_x = graphic_percentage
-  var text_position_y = 0
+  var text_position_x = graphic_percentage;
+  var text_position_y = 0;
   if (quality < 0.1) {
-      text_position_x = 0.1752416
-  } else if (quality > 0.85 & quality < 1.0 ) {
-      text_position_x = 0.7848776000000001
+      text_position_x = 0.1752416;
+  } else if (quality > 0.85 && quality < 1.0 ) {
+      text_position_x = 0.7848776000000001;
   } else if (quality >= 1.0) {
-      text_position_x = 0.92
-      text_position_y = -0.23
+      text_position_x = 0.92;
+      text_position_y = -0.23;
   }
 
-  var text_0_label_weight= "normal"
-  var text_100_label_weight= "normal"
-  var text_value_label = quality_over100
-  if (quality == 0) {
+  var text_0_label_weight= "normal";
+  var text_100_label_weight= "normal";
+  var text_value_label = quality_over100;
+  if (quality === 0) {
       text_value_label = "";
       text_0_label_weight ="bold";
-  } else if (quality == 1) {
+  } else if (quality === 1) {
       text_value_label = "";
       text_100_label_weight ="bold";
   }
@@ -48,8 +48,30 @@ function cloud(quality,pollutant,element) {
       width = max_width - margin.left - margin.right,
       height = max_height - margin.top - margin.bottom;
 
+  function mapMouseOut(d){// jshint ignore:line
+        d3.selectAll("section.text_in").text("Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes.");// jshint ignore:line
+  }
 
-  var svg = d3.select(element)
+  function mapMouseOver(d){// jshint ignore:line
+    var text_out  = "Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes";
+    console.log(text_out);
+    if (pollutant=== "PM10") {
+        text_out ="Partículas suspendidas en el aire que representan riesgos a la salud, ya que se depositan en el tracto respiratorio. Generalmente son producto de una combustión incompleta (léase, malos quemadores o motores) o por procesos de molienda (léase, cementeras)";
+    } else if (pollutant=== "PM25") {
+        text_out  = "Partículas suspendidas en el aire que representan riesgos a la salud, ya que se depositan en el tracto respiratorio. Son más pequeñas que las partículas de 10 micras, sólo más pequeñas por lo que llegan más lejos en el tracto respiratorio.";
+    } else if (pollutant=== "O3") {
+        text_out  = "La capa de ozono es buena, pero mucho más arriba que al nivel de la ciudad, el ozono a nivel de la ciudad tiene lugar por agentes altamente oxidantes y da problemas de salud, tanto al respirar como al contacto con la materia viva.";
+    } else if (pollutant=== "CO") {
+        text_out  = " Producto de la mala combustión. Altamente tóxico.";
+    } else if (pollutant=== "SO2") {
+        text_out  = "Producto de la combustión de materiales que contienen azufre, principalmente de sólidos. Medianamente tóxico.";
+    } else if (pollutant=== "NO2") {
+        text_out  = "Producto de la mala combustión de sólidos y de cadenas largas de combustible (más pesadas que la gasolina), que reaccionan con el aire. Es precursora de las partículas PM 2.5. Altamente tóxico.";
+    }
+    d3.selectAll("section.text_in").text(text_out);// jshint ignore:line
+  }
+
+  var svg = d3.select(element)// jshint ignore:line
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -62,7 +84,7 @@ function cloud(quality,pollutant,element) {
       .attr("cy", max_height/2)         // position the top of the rectangle
       .attr("r",max_width*2)
       .attr("id","fill_white_bg")
-      .attr("fill","White")
+      .attr("fill","White");
 
 
   svg.append("circle")        // attach a rectangle
@@ -70,7 +92,7 @@ function cloud(quality,pollutant,element) {
       .attr("cy", max_height/2)         // position the top of the rectangle
       .attr("r",max_width/2)
       .attr("id","fill_rect")
-      .attr("fill","transparent")
+      .attr("fill","transparent");
 
   svg.append("svg:image")
       .attr("x", margin.left)        // position the left of the rectangle
@@ -80,15 +102,16 @@ function cloud(quality,pollutant,element) {
       .attr("width", cloud_width)
       .attr("height", cloud_height);
 
-  var defs = svg.append("defs").attr("id", "imgdefs")
+  var defs = svg.append("defs").attr("id", "imgdefs");
 
   var filling_pattern = defs.append("pattern")
       .attr("id", "filling_pattern")
       .attr("height", 1)
       .attr("width", 1)
       .attr("x", "0")
-      .attr("y", "0")
+      .attr("y", "0");
 
+  var fill_filename;
   if (quality <= 0.25) {
       fill_filename = "images/cloud_1.svg";
   } else if (quality <= 0.50) {
@@ -96,14 +119,14 @@ function cloud(quality,pollutant,element) {
   } else if (quality <= 0.75) {
       fill_filename = "images/cloud_3.svg";
   } else if (quality > 0.75) {
-      var fill_filename = "images/cloud_4.svg";
+      fill_filename = "images/cloud_4.svg";
   }
 
   filling_pattern.append("svg:image")
       .attr("id", "darkblue-cloud-svg")
       .attr("xlink:href", fill_filename)
       .attr("width", cloud_width)
-      .attr("height", cloud_height)
+      .attr("height", cloud_height);
 
 
   svg.append("rect")        // attach a rectangle
@@ -164,8 +187,8 @@ function cloud(quality,pollutant,element) {
 
   var title_font_size = 22;
   var n_pollutant = pollutant.length;
-  var multiplier = 0.5+n_pollutant/4.0
-  console.log(title_font_size.toString()+"px")
+  var multiplier = 0.5+n_pollutant/4.0;
+  console.log(title_font_size.toString()+"px");
 
   svg.append("text")
           .attr("x", max_width/2.0-multiplier*title_font_size)
@@ -178,15 +201,15 @@ function cloud(quality,pollutant,element) {
           .attr("text-spacing","150%")
           .attr("font-weight","bolder");
 
-  var title_box = svg.selectAll("*")
+  svg.selectAll("*")
           .on("mouseover", function() {
               svg.selectAll("#title_box")
                 .classed("hover",true);
             })
           .on("mouseout", function() {
               svg.selectAll("#title_box")
-                .classed("hover",false)
-        })
+                .classed("hover",false);
+        });
 
   svg.append("text")
         .attr("x", margin.left + 0.08*cloud_width)
@@ -231,38 +254,13 @@ function cloud(quality,pollutant,element) {
           .attr("height", cloud_height)    // set the height
           .attr("width", margin.left*1.1);    // set the width
 
-      var circle_fill = "transparent"
-      function mapMouseOver(d){
-        var text_out  = "Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes";
-        console.log(text_out)
-        if (pollutant== "PM10") {
-            text_out ="Partículas suspendidas en el aire que representan riesgos a la salud, ya que se depositan en el tracto respiratorio. Generalmente son producto de una combustión incompleta (léase, malos quemadores o motores) o por procesos de molienda (léase, cementeras)";
-        } else if (pollutant== "PM25") {
-            text_out  = "Partículas suspendidas en el aire que representan riesgos a la salud, ya que se depositan en el tracto respiratorio. Son más pequeñas que las partículas de 10 micras, sólo más pequeñas por lo que llegan más lejos en el tracto respiratorio.";
-        } else if (pollutant== "O3") {
-            text_out  = "La capa de ozono es buena, pero mucho más arriba que al nivel de la ciudad, el ozono a nivel de la ciudad tiene lugar por agentes altamente oxidantes y da problemas de salud, tanto al respirar como al contacto con la materia viva.";
-        } else if (pollutant== "CO") {
-            text_out  = " Producto de la mala combustión. Altamente tóxico.";
-        } else if (pollutant== "SO2") {
-            text_out  = "Producto de la combustión de materiales que contienen azufre, principalmente de sólidos. Medianamente tóxico.";
-        } else if (pollutant== "NO2") {
-            text_out  = "Producto de la mala combustión de sólidos y de cadenas largas de combustible (más pesadas que la gasolina), que reaccionan con el aire. Es precursora de las partículas PM 2.5. Altamente tóxico.";
-        }
-        var text_div = d3.selectAll("section.text_in").text(text_out);
-      }
-
-      function mapMouseOut(d){
-        var text_div = d3.selectAll("section.text_in").text("Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes.");
-      }
-
-
-      if (pollutant=="none") {
+      if (pollutant==="none") {
           svg.append("circle")        // attach a rectangle
               .attr("cx", max_width/2)        // position the left of the rectangle
               .attr("cy", max_height/2)         // position the top of the rectangle
               .attr("r",max_width)
               .attr("id","fill_circle")
-              .attr("fill","white")
+              .attr("fill","white");
       }
 
 }
@@ -276,8 +274,8 @@ angular.module('calidadDelAire')
         pollutant: '@pollutant'
       },
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        scope.$watch("quality",function(newValue,oldValue){
+      link: function postLink(scope, element) {
+        scope.$watch("quality",function(){
           cloud(scope.quality, scope.pollutant, element[0].firstChild);
         });
       },
