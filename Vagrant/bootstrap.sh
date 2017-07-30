@@ -12,10 +12,11 @@ swapon /swapfile
 echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 
 install "curl" curl
-gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+\curl -sSL https://get.rvm.io -o rvm.sh
+cat rvm.sh | bash -s stable
 source /etc/profile.d/rvm.sh
-rvm requirements
+
 rvm install 2.2.4
 rvm use 2.2.4 --default 
 
@@ -33,18 +34,21 @@ echo -e "[Unit]\n Description=High-performance, schema-free document-oriented da
 sudo systemctl start mongodb
 sudo systemctl enable mongodb
 
-install "python" python-pip python-dev build-essential python-blinker
+install "python" python-pip python3-pip python-dev build-essential python-blinker 
 sudo pip install --upgrade pip 
 
 install "Git" git
 cd /opt
 sudo mkdir idatosabiertos
+sudo chmod 757 -R /opt/idatosabiertos/
 cd idatosabiertos
-sudo git clone https://github.com/idatosabiertos/calidad-del-aire-webapp
-sudo git clone https://github.com/idatosabiertos/api-calidad-aire
 
+sudo git clone https://github.com/idatosabiertos/api-calidad-aire
+sudo git clone https://github.com/idatosabiertos/calidad-aire-cdmx-latam
+sudo git clone https://github.com/idatosabiertos/calidad-del-aire-webapp
 
 cd api-calidad-aire 
+git checkout develop
 sudo rm -rf src/flask-mongoengine
 sudo rm -rf src/mongoengine
 sudo pip install -r requirements.txt
@@ -56,9 +60,15 @@ export rollbar_key=api-calidad-aire
 export rollbar_environment=development
 python run.py &
 
+cd /opt/idatosabiertos/calidad-aire-cdmx-latam
+pip3 install pandas
+install "zip" zip
+sudo chmod +x ./cronjob.sh 
+nohup ./cronjob.sh > /dev/null 2>&1 &
+
 cd /opt/idatosabiertos/calidad-del-aire-webapp
+git checkout develop
 npm install
-sudo chmod 757 -R /opt/idatosabiertos/
 bower install --allow-root
 grunt serve
 

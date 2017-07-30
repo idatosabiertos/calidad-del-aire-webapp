@@ -1,5 +1,7 @@
 # Calidad del Aire / Air Quality [![Build Status](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp.svg?branch=develop)](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp)
-Aplicación web que muestra el estado de la calidad del aire actual en relación con los estándares de la OMS.  
+
+Aplicación web que muestra el estado de la calidad del aire actual en relación con los estándares de la OMS. 
+
 Web application showing the current state of air quality in relation to the OMS standard.
 
 
@@ -18,8 +20,9 @@ Web application showing the current state of air quality in relation to the OMS 
 	 - $`npm install -g compass`
 	 - $`gem install compass`
 6. **API**
-	- [API](https://github.com/idatosabiertos/api-calidad-aire) levantada y corriendo/ [API](https://github.com/idatosabiertos/api-calidad-aire)
- up and running
+	- [API](https://github.com/idatosabiertos/api-calidad-aire) levantada y corriendo / up and running
+7. **API JOB**
+	- [API JOB](https://github.com/idatosabiertos/calidad-aire-cdmx-latam) levantada y corriendo / up and running
 
 ## INSTALACIÓN / INSTALATION
 - $`git clone https://github.com/idatosabiertos/calidad-del-aire-webapp`
