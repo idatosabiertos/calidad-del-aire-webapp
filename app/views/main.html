@@ -1,57 +1,135 @@
-<section class="text-center">
-  <h1>Calidad del aire</h1>
-</section>
-
-  <section>
-    <p>
-      Pequeña descripción de qué es, qué hace, cómo funciona. Lorem ipsum dolor
-      sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </section>
-
-<section>
-  <p class="main-label">
-    Período de tiempo para visualizar la información:
-  </p>
-  <div class="col-xs-12 col-sm-4">
-    <select class="form-control" name="" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions">
-    </select>
-  </div>
-</section>
-
-<section class="text-center">
-  <!-- <h1>Nombre del indicador</h1> -->
-  <highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
-</section>
-
-<section>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="poll_experience">
-        <p>
-          <strong>Some variable description.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="poll_experience">
-        <p>
-          <strong>Some poll description.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <ul>
-          <li><span class="index">1.</span>Muy Mala</li>
-          <li><span class="index">2.</span>Mala</li>
-          <li><span class="index">3.</span>Regular</li>
-          <li><span class="index">4.</span>Buena</li>
-          <li><span class="index">5.</span>Muy buena</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="container-fluid">
+	<div class="col-sm-13 banner_city"><img src="images/banner_city.png" class="img-responsive"></div>
+	<div class="row-height">
+	  <div class="col-sm-7 col-height description">
+			<div class="inside">
+				<span><h1> ¿Qué es Respira? </h1></span>
+				<span><h2>__</h2></p></span>
+				<span>
+					<h3>
+					 El aire que respiramos es una pieza clave de nuestra salud. Saber
+					 cuál es el estado de la calidad del aire que respiramos es un derecho
+					 que contamos todos los que habitamos una metrópoli. Entérate de la
+					 calidad del aire actual en relación con los estándares de la OMS.
+				 </h3>
+				</span>
+			</div>
+		</div>
+	  <div class="col-sm-5 twitter col-height">
+			<div class="inside">
+				<h1>Twitter <span class="twitter-handle"><a class="twitter-handle" href="http://twitter.com/{{ twitts.account }}">@{{ twitts.account }}</a></span></h1>
+				<span><h2>__</h2></p></span>
+				<table class="table">
+				  <tbody>
+						<tr ng-repeat="twitt in twitts.twitts">
+							<td class="cloud-col"><img src="images/cloud_mini.png" class="img-cloud"></td>
+							<td>
+								<span class="text-tweet">{{ twitt.text }}<p></span>
+								<span class="go-tweet"><a href="{{ twitt.url }}">Ver >></a></span>
+							</td>
+					  </tr>
+				  </tbody>
+				</table>
+		</div>
+	</div>
+</div>
+	<div class="row-height">
+	  <div class="col-sm-7 map-selector">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-4">
+				<select class="form-control selector-map" ng-init="main.dateSelected = main.dateOptions[1]" ng-model="main.dateSelected" ng-options="option.label for option in main.dateOptions" ng-change="main.drawGraph()">
+					<option>Periodo de Tiempo</option>
+				</select>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	  <div class="col-sm-5 clouds-title">
+				<h1><section class="text_title">Principales Contaminantes</section></h1>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="col-sm-7 map-container" ng-controller="MapCtrl as vm">
+			<ng-map default-style="false" zoom="11" center="[19.4139954,-99.1353833]">
+				<span ng-repeat="station in stations_circle_data">
+					<shape
+				 name="circle"
+				 stroke-weight="1"
+				 radius="{{station.quality*1000}}"
+				 center="[{{station.lat}}, {{station.long}}]"
+				 stroke-color="{{station.color}}"
+				 fill-color="{{station.color}}"
+				 on-mouseover="vm.showDetail('{{station}}')"
+				 on-mouseout= "vm.hideDetail('{{station}}')"
+				 on-click="vm.hideDetail('{{station}}')"
+				 id = "circle-{{station.name}}"
+	 		 		/>
+				</span>
+				<span ng-if="active_station">
+					<marker id="marker" position="{{active_station}}" icon="none">
+					</marker>
+					<info-window id="bar" visible-on-marker="marker" >
+						<div ng-non-bindable="">
+							<strong>{{active_station_data.name}}</strong><p>
+							Calidad: {{active_station_data.quality}} veces el límite
+						</div>
+					</info-window>
+				</span>
+			</ng-map>
+		</div>
+		<div class="col-sm-5 clouds">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td><cloud pollutant={{pollutant_cloud_array[0][0]}} quality={{pollutant_cloud_array[0][1]}} ></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[1][0]}} quality={{pollutant_cloud_array[1][1]}}></cloud></td>
+					</tr>
+					<tr>
+						<td><cloud pollutant={{pollutant_cloud_array[2][0]}} quality={{pollutant_cloud_array[2][1]}}></cloud></td>
+						<td><cloud pollutant={{pollutant_cloud_array[3][0]}} quality={{pollutant_cloud_array[3][1]}}></cloud></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row-height">
+			<div class="col-sm-7 map-description">
+				<div class="inside">
+				<h1>Mapa de contaminantes en CDMX</h1>
+				<h2>
+					En el mapa puedes observar las estaciones de la ciudad. Los puntos
+					con una circunferencia más amplia, son aquellos que están observando
+					una calidad del aire inferior que el resto de la estaciones. Este
+					número, es calculado a partir de los estándares de la Organización
+					Mundial de la Salud, y en realidad, lo que observas, es un multiplicador
+					de los niveles promedios recomendados por tal organización.
+				</h2>
+			</div>
+		</div>
+		<div class="col-sm-5 clouds">
+			<div class="inside clouds-description">
+			<h2>
+				<section class="text_in">
+					Pasa el mouse por encima de alguna de las nubes para conocer más detalles sobre los contaminantes
+				</section>
+			</h2>
+		</div>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="col-sm-7"></div>
+		<div class="col-sm-5">
+			<div class="inside download-section">
+			<a href={{path_to_file_download}}>
+				<button type="button" class="download btn btn-primary">Descargar datos</button>
+			</a>
+			</div>
+		</div>
+	</div>
+	<div class="row-height">
+		<div class="linechart col-sm-12">
+			<div class="inside">
+				<highchart id="chart1" config="main.chartConfig" ng-show="main.showChart"></highchart>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,9 +1,15 @@
 sudo: false
+
+dist: trusty
+
 language: node_js
+
 node_js:
-  - 'iojs'
-  - '0.12'
-  - '0.10'
+  - '4.2.6'
+
 before_script:
-  - 'npm install -g bower grunt-cli'
+  - 'npm install -g bower grunt grunt-cli compass'  
   - 'bower install'
+  - 'gem install compass'
+
+script: grunt
