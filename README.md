@@ -1,4 +1,4 @@
-# Calidad del Aire / Air Quality [![Build Status](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp.svg?branch=develop)](https://travis-ci.org/idatosabiertos/calidad-del-aire-webapp)
+# Calidad del Aire / Air Quality [![Build Status](https://travis-ci.org/civica-digital/calidad-del-aire-webapp.svg?branch=develop)](https://travis-ci.org/civica-digital/calidad-del-aire-webapp)
 
 Aplicación web que muestra el estado de la calidad del aire actual en relación con los estándares de la OMS. 
 
@@ -20,18 +20,18 @@ Web application showing the current state of air quality in relation to the OMS 
 	 - $`npm install -g compass`
 	 - $`gem install compass`
 6. **API**
-	- [API](https://github.com/idatosabiertos/api-calidad-aire) levantada y corriendo / up and running
+	- [API](https://github.com/civica-digital/api-calidad-aire) levantada y corriendo / up and running
 7. **API JOB**
-	- [API JOB](https://github.com/idatosabiertos/calidad-aire-cdmx-latam) levantada y corriendo / up and running
+	- [API JOB](https://github.com/civica-digital/calidad-aire-cdmx-latam) levantada y corriendo / up and running
 
 ## INSTALACIÓN / INSTALATION
-- $`git clone https://github.com/idatosabiertos/calidad-del-aire-webapp`
+- $`git clone https://github.com/civica-digital/calidad-del-aire-webapp`
 - $`cd  /calidad-del-aire-webapp`
 - $`npm install`
 - $`bower install`
 - $`grunt serve`
 
-### Vagrant  [/vagrant](https://github.com/idatosabiertos/calidad-del-aire-webapp/tree/develop/Vagrant)
+### Vagrant  [/vagrant](https://github.com/civica-digital/calidad-del-aire-webapp/tree/develop/Vagrant)
 **Requerimientos / Requirements**
  - [Vagrant](https://www.vagrantup.com/downloads.html)
  - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)

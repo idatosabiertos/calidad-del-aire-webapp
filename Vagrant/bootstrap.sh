@@ -39,13 +39,13 @@ sudo pip install --upgrade pip
 
 install "Git" git
 cd /opt
-sudo mkdir idatosabiertos
-sudo chmod 757 -R /opt/idatosabiertos/
-cd idatosabiertos
+sudo mkdir civica-digital
+sudo chmod 757 -R /opt/civica-digital/
+cd civica-digital
 
-sudo git clone https://github.com/idatosabiertos/api-calidad-aire
-sudo git clone https://github.com/idatosabiertos/calidad-aire-cdmx-latam
-sudo git clone https://github.com/idatosabiertos/calidad-del-aire-webapp
+sudo git clone https://github.com/civica-digital/api-calidad-aire
+sudo git clone https://github.com/civica-digital/calidad-aire-cdmx-latam
+sudo git clone https://github.com/civica-digital/calidad-del-aire-webapp
 
 cd api-calidad-aire 
 git checkout develop
@@ -60,13 +60,13 @@ export rollbar_key=api-calidad-aire
 export rollbar_environment=development
 python run.py &
 
-cd /opt/idatosabiertos/calidad-aire-cdmx-latam
+cd /opt/civica-digital/calidad-aire-cdmx-latam
 pip3 install pandas
 install "zip" zip
 sudo chmod +x ./cronjob.sh 
 nohup ./cronjob.sh > /dev/null 2>&1 &
 
-cd /opt/idatosabiertos/calidad-del-aire-webapp
+cd /opt/civica-digital/calidad-del-aire-webapp
 git checkout develop
 npm install
 bower install --allow-root
