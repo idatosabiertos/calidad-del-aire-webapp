@@ -45,7 +45,7 @@ angular.module('calidadDelAire')
       return [historical_timeline, baseline];
     }
 
-    var baseUrl = 'http://52.39.1.207:8000/';
+    var baseUrl = 'http://localhost:8000/';
     var uri = {
       cities: baseUrl + 'cities',
       twitts: function(city_id) {
